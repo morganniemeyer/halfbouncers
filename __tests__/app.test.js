@@ -37,7 +37,7 @@ describe('lazy-bouncer routes', () => {
     pool.end();
   });
 
-  it.skip('creates a new user', async () => {
+  it('creates a new user', async () => {
     const res = await request(app).post('/api/v1/users').send(mockUser);
     const { firstName, lastName, email } = mockUser;
 
@@ -49,7 +49,7 @@ describe('lazy-bouncer routes', () => {
     });
   });
 
-  it.skip('returns the current user', async () => {
+  it('returns the current user', async () => {
     const [agent, user] = await registerAndLogin();
     const me = await agent.get('/api/v1/users/me');
 
@@ -79,7 +79,7 @@ describe('lazy-bouncer routes', () => {
     });
   });
 
-  it.skip('should return a list of users if signed in as admin', async () => {
+  it('should return a list of users if signed in as admin', async () => {
     const [agent, user] = await registerAndLogin({ email: 'admin' });
     const res = await agent.get('/api/v1/users');
 
